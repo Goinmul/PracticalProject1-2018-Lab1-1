@@ -30,9 +30,8 @@ public class Calculator {
 	static int countForAnyCompution = 0;
 	// private member variable is used by only one object can can't be shared by other objects
 	//
-
+	
 	private int localCount = 0;
-
 
 	/**
 	 * This is a main method, which is a special method where is the starting point of a program execution.
@@ -87,6 +86,7 @@ public class Calculator {
 		return first + second;
 	}
 
+	//(#1) subtract wrong logic
 	int subtract(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
@@ -105,8 +105,9 @@ public class Calculator {
 		return first / second;
 	}
 
+	
 	int mod(int first, int second) {
-		// TODO implement the body of this method
+		
 		return 0;
 	}
 
