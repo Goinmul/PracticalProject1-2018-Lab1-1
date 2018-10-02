@@ -71,6 +71,7 @@ public class Calculator {
 	}
 
 	
+	
 	/**
 	 * @param prefix
 	 * @param result
@@ -99,7 +100,8 @@ public class Calculator {
 		return first * second;
 	}
 
-	int divide(int first, int second) {
+	
+	int divide(int first, int second) throws ArithmeticException{
 		countForAnyCompution++;
 		localCount++;
 		return first / second;
