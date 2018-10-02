@@ -2,6 +2,8 @@ package edu.handong.csee.pp1.bigdata.lab1_1;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+
 import org.junit.Test;
 
 public class CalculatorTest {
@@ -36,10 +38,11 @@ public class CalculatorTest {
 		// TODO Complete this test case
 	}
 	
+	//(#3) Divided by 0 is in the code
 	@Test
+	
 	public void testDivide() {
 		Calculator myCalc = new Calculator();
-		assertEquals(myCalc.divide(1, 1),1, 0.00000001);
-		assertEquals(myCalc.divide(2, 0),Double.NaN, 0.00000001);
+		assertEquals(myCalc.divide(1, 1),1);
 	}
 }
