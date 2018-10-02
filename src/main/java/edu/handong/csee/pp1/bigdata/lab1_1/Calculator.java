@@ -107,8 +107,9 @@ public class Calculator {
 
 	//(#2) mod function body unimplemented
 	int mod(int first, int second) {
-		
-		return 0;
+		countForAnyCompution++;
+		localCount++;
+		return first % second;
 	}
 
 	static int getCount() {
