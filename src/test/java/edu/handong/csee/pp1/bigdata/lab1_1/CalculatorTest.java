@@ -3,9 +3,11 @@ package edu.handong.csee.pp1.bigdata.lab1_1;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
-
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
+//(#5) JUnit test case implemented
 public class CalculatorTest {
 
 	@Test
@@ -30,15 +32,18 @@ public class CalculatorTest {
 	
 	@Test
 	public void testMod() {
-		// TODO Complete this test case
+		Calculator myCalc = new Calculator();
+		assertEquals(myCalc.mod(4, 2),0);
+		assertEquals(myCalc.mod(5, 3),2);
 	}
 
 	@Test
 	public void testMultiply() {
-		// TODO Complete this test case
+		Calculator myCalc = new Calculator();
+		assertEquals(myCalc.multiply(3, 2),6);
 	}
 	
-	//(#3) Divided by 0 is in the code
+	//(#3) Divided by 0 is in the code -> handled in the main
 	@Test
 	
 	public void testDivide() {
