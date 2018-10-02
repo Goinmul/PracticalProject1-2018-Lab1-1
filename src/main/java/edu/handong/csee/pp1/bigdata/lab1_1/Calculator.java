@@ -30,7 +30,7 @@ public class Calculator {
 	static int countForAnyCompution = 0;
 	// private member variable is used by only one object can can't be shared by other objects
 	//
-	
+
 	private int localCount = 0;
 
 	/**
@@ -57,9 +57,12 @@ public class Calculator {
 	 * 'private' means this method can be called only in this class.
 	 * 
 	 */
+	//(#4) Divide by 0 issue handled
 	private void execute(String firstArg, String secondArg) {
-		int firstIntArg = Integer.parseInt(firstArg);
-		int secondIntArg = Integer.parseInt(secondArg);
+
+			int firstIntArg = Integer.parseInt(firstArg);
+			int secondIntArg = Integer.parseInt(secondArg);
+		
 
 		countForAnyCompution=0;
 		localCount = 0;
@@ -67,56 +70,62 @@ public class Calculator {
 		print("SUM:" , sum(firstIntArg, secondIntArg));
 		print("SUB:" , this.subtract(firstIntArg, secondIntArg));
 		print("*:" , multiply(firstIntArg, secondIntArg));
-		print("DV:" , divide(firstIntArg,secondIntArg));
+		try {
+			print("DV:" , divide(firstIntArg,secondIntArg));
+		}catch(ArithmeticException e)
+		{
+			System.out.println("Input parameter causes Divied by 0 issue.");
+			System.out.print("System close.");
+			System.exit(1);
+		}
 	}	
-	
-	/**
-	 * @param prefix
-	 * @param result
-	 * This method prints out computation result.
-	 */
-	void print(String prefix, int result) {
-		System.out.println(prefix + " " + result);
-	}
 
-	int sum(int first, int second) {
-		countForAnyCompution++;
-		localCount++;
-		return first + second;
-	}
-	
-	//(#1) subtract wrong logic
-	int subtract(int first, int second) {
-		countForAnyCompution++;
-		localCount++;
-		return first - second;
-	}
+/**
+ * @param prefix
+ * @param result
+ * This method prints out computation result.
+ */
+void print(String prefix, int result) {
+	System.out.println(prefix + " " + result);
+}
 
-	int multiply(int first, int second) {
-		countForAnyCompution++;
-		localCount++;
-		return first * second;
-	}
+int sum(int first, int second) {
+	countForAnyCompution++;
+	localCount++;
+	return first + second;
+}
 
-	
-	int divide(int first, int second) throws ArithmeticException{
-		countForAnyCompution++;
-		localCount++;
-		return first / second;
-	}
+//(#1) subtract wrong logic
+int subtract(int first, int second) {
+	countForAnyCompution++;
+	localCount++;
+	return first - second;
+}
 
-	//(#2) mod function body unimplemented
-	int mod(int first, int second) {
-		countForAnyCompution++;
-		localCount++;
-		return first % second;
-	}
+int multiply(int first, int second) {
+	countForAnyCompution++;
+	localCount++;
+	return first * second;
+}
 
-	static int getCount() {
-		return countForAnyCompution;
-	}
+int divide(int first, int second){
+	countForAnyCompution++;
+	localCount++;
+	return first / second;
+}
 
-	int getLocalCount() {
-		return localCount;
-	}
+//(#2) mod function body unimplemented
+int mod(int first, int second) {
+	countForAnyCompution++;
+	localCount++;
+	return first % second;
+}
+
+static int getCount() {
+	return countForAnyCompution;
+}
+
+int getLocalCount() {
+	return localCount;
+}
 }
