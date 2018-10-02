@@ -85,12 +85,12 @@ public class Calculator {
 		localCount++;
 		return first + second;
 	}
-
+	
 	//(#1) subtract wrong logic
 	int subtract(int first, int second) {
 		countForAnyCompution++;
 		localCount++;
-		return first + second;
+		return first - second;
 	}
 
 	int multiply(int first, int second) {
@@ -105,7 +105,7 @@ public class Calculator {
 		return first / second;
 	}
 
-	
+	//(#2) mod function body unimplemented
 	int mod(int first, int second) {
 		
 		return 0;
